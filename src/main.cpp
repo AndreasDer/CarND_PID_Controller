@@ -40,14 +40,9 @@ int main() {
   double target_speed = 0.0;
   double throttle=0.3;
   twiddle.Init();
-  //steering_pid.Init(0.214519, 0.275214, 7.187);
-  steering_pid.Init(0.214519, 0.001, 7.187);
-  //speed_pid.Init(0.35, 0.1, 0);
+  steering_pid.Init(0.214519, 0.275214, 7.187);
   //steering_pid.Init(twiddle.param[0], twiddle.param[1], twiddle.param[2]);
   twiddle.setActive(false);
-  /**
-   * TODO: Initialize the pid variable.
-   */
 
   h.onMessage([&steering_pid,&throttle,&twiddle,&speed_pid,&target_speed](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, 
                      uWS::OpCode opCode) {
@@ -78,10 +73,9 @@ int main() {
                   twiddle.Init();
               }
               if (twiddle.counter < MAX_CYCLES) {
-                  twiddle.error += cte * cte;
-                  /*if (twiddle.counter > MAX_CYCLES) {
+                  if (twiddle.counter > 100) {
                       twiddle.error += cte * cte;
-                  }*/
+                  }
               }
               else {
                   if (twiddle.state==-1) {
@@ -99,17 +93,6 @@ int main() {
           }
           steering_pid.UpdateError(cte);
           steer_value = steering_pid.TotalError();
-          /**
-           * TODO: Calculate steering value here, remember the steering value is
-           *   [-1, 1].
-           * NOTE: Feel free to play around with the throttle and speed.
-           *   Maybe use another PID controller to control the speed!
-           */
-          // DEBUG
-          //speed_pid.UpdateError(fabs(cte));
-          //double throttle_corr = speed_pid.TotalError();
-          //throttle = 1+ throttle_corr;
-          //std::cout << "Throttle_corr: " << throttle_corr << std::endl;
           if (speed > 30) {
               throttle -= 0.11;
           }

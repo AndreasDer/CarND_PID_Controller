@@ -7,22 +7,13 @@ Twiddle::~Twiddle(){}
 
 void Twiddle::Init()
 {
-	/*for (int i = 0; i < 3; i++) {
+
+	for (int i = 0; i < 3; i++) {
+		param[i] = 1;
+	}
+	for (int i = 0; i < 3; i++) {
 		param_d[i] = 1;
-	}*/
-	/*param_d[0] = 0.2;
-	param_d[1] = 0.1;
-	param_d[2] = 0.1;
-	param[0] = 6.36;
-	param[1] = -0.165;
-	param[2] = 0.9729;*/
-	param_d[0] = 0.00807583;
-	param_d[1] = 0.014983;
-	param_d[2] = 0.0806777;
-	//Params: 0.206443, 0.264726, 7.187, Params : 0.00807583, 0.014983, 0.0806777
-	param[0] = 0.206443;
-	param[1] = 0.264726;
-	param[2] = 7.187;
+	}
 	counter = 0;
 	error = 0.0;
 	best_error = 0.0;
