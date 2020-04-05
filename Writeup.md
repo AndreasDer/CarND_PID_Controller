@@ -19,7 +19,7 @@ To tune the parameters of the controller I implemented the Twiddle algorithm. Th
 
 #### Result
 
-The result of my controllers behavior can be seen in the video [Video](https://github.com/AndreasDer/CarND_PID_Controller/blob/master/output/self_driving_car_nanodegree_program%202020-04-04%2018-38-18.mp4)
+The result of my controllers behavior can be seen in the [Video](https://github.com/AndreasDer/CarND_PID_Controller/blob/master/output/self_driving_car_nanodegree_program%202020-04-04%2018-38-18.mp4)
 
 #### Conclusion
 
